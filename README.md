@@ -1,2 +1,2 @@
 # Sql
-Some sql queries. 
+CS 564 project2
