@@ -1,2 +1,2 @@
-# Some-Sql
-Some sql queries
+# Sql
+Some sql queries. 
