@@ -1,2 +1,2 @@
 # Sql
-CS 564 project2
+1. CS 564 project2
