@@ -1,0 +1,50 @@
+{% extends "app_base.html" %}
+{% block content %}
+<h3> Item Info </h3> 
+<body>
+    <div><b>title: </b>>{{title}} </div> 
+    <br/>
+    <div><b>description:</b> {{desc}} </div> 
+    <br/>
+    <div><b>Seller:</b> {{seller}} </div> 
+    <br/>
+    <div><b>Categories:</b>
+        <br/>
+        <ul>
+            {% for cat in category%}    
+            <li>{{ cat["Category"]|e}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <br/>
+    <div><b>start time:</b>  {{start_time}}  <br/>
+    <b>end time:</b> {{end_time}}</div> 
+    <br/>
+    <div><b>status:</b>  <strong>{{status}}</strong> </div> 
+    <br/>
+
+    <div>    
+        <strong>bids:</strong><br/>
+        Number of bids: {{num_bids}} <br/>
+        First bid amount: {{first_bid}}<br/><br/>
+        
+
+        <b> All bids: </b><br/>
+        {% if bid_result %}
+            {% for bid in bid_result %}
+                -------------------------------------------------<br/>
+                Bidder Name: {{bid['UserID']|e}}<br/>
+                Bid Time: {{bid['Time']|e}}<br/>
+                Bid Amount: {{bid['Amount']|e}}<br/>
+                -------------------------------------------------
+            {% endfor %}
+        {% endif %}
+    </div>
+    <br/>
+    {% if closed %}
+        <div>Auction closed. Winner: {{winner}} </div>
+    {% else %}
+        <div>Auction still open. Current Price: {{currently}}</div>
+    {% endif %}
+</body>
+{% endblock %}
